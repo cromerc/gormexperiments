@@ -68,7 +68,7 @@ func (r *Repository) FindProduct(id uuid.UUID) (*entity.Product, error) {
 }
 
 func (r *Repository) FindProductByCode(product entity.Product) (*entity.Product, error) {
-	r.getDB().First(&product, "code = ?", "D42")
+	r.getDB().First(&product, "code = ?", product.Code)
 	return &product, nil
 }
 
